@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+ 
+# 🎓 MentorLagbe — Client
 
-## Getting Started
+A modern tuition and tutor-finding platform that connects students with qualified tutors. MentorLagbe makes it easier for students to find suitable tutors and for tutors to discover teaching opportunities.
 
-First, run the development server:
+## 🌐 Project Overview
+
+MentorLagbe is a web-based platform designed to simplify the tuition search and application process. Students can explore available tuition opportunities, apply for suitable positions, and manage their applications. Tutors can post tuition listings, manage their posts, and review student applications.
+
+## ✨ Key Features
+
+- **User Authentication:** Secure registration and login with Better Auth.
+- **Role-Based Dashboards:** Separate dashboards for Students, Tutors, and Admins.
+- **Browse Tuitions:** Explore approved tuition listings.
+- **Search & Discover:** Find tuition opportunities based on relevant information.
+- **Tuition Details:** View detailed information about individual tuition posts.
+- **Student Applications:** Apply for tuition opportunities and track application status.
+- **Saved Tuitions:** Save interesting tuition listings for later.
+- **Tutor Dashboard:** Post, edit, delete, and manage tuition listings.
+- **Applicant Management:** Review applicants and update application statuses.
+- **Admin Dashboard:** Manage users, tuition posts, and payments.
+- **Subscription Plans:** Student and Tutor subscription options with Stripe.
+- **Payment Pages:** Dedicated payment success and cancellation pages.
+- **Responsive Design:** Optimized for desktop, tablet, and mobile devices.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Next.js 16 | React framework |
+| React 19 | UI development |
+| TypeScript | Type safety |
+| Tailwind CSS | Styling |
+| Better Auth | Authentication |
+| Stripe | Subscription payments |
+| Lucide React | Icons |
+
+## 📁 Project Structure
+
+```text
+mentorlagbe-client/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── (auth)/
+│   │   │   ├── login/
+│   │   │   └── register/
+│   │   ├── dashboard/
+│   │   │   ├── admin/
+│   │   │   ├── student/
+│   │   │   └── tutor/
+│   │   ├── payment/
+│   │   ├── pricing/
+│   │   └── tuitions/
+│   ├── components/
+│   └── lib/
+├── .env.local
+├── package.json
+└── README.md
+```
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone YOUR_CLIENT_REPOSITORY_URL
+```
+
+### 2. Navigate to the Project
+
+```bash
+cd mentorlagbe-client
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env.local` file in the project root:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+
+Replace the URL with your deployed backend URL when deploying.
+
+### 5. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔗 Related Links
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Live Website:** Add your deployed client URL here.
+- **Backend Repository:** Add your server GitHub repository URL here.
 
-## Learn More
+## 👩‍💻 Developer
 
-To learn more about Next.js, take a look at the following resources:
+**Halima Chowdhury Mahima**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Full Stack Web Developer
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- GitHub: [halima-chowdhury-mahima](https://github.com/halima-chowdhury-mahima)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<p align="center">
+  Built with ❤️ for MentorLagbe
+</p>
