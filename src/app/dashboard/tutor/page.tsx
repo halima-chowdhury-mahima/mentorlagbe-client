@@ -16,6 +16,7 @@ import {
   ArrowRight,
   GraduationCap,
   Loader2,
+  UserRound,
 } from "lucide-react";
 
 export default function TutorDashboard() {
@@ -69,6 +70,12 @@ export default function TutorDashboard() {
       href: "/dashboard/tutor/applicants",
       icon: Users,
     },
+    {
+      title: "My Profile",
+      description: "View and update your personal and professional information.",
+      href: "/dashboard/tutor/profile",
+      icon: UserRound,
+    },
   ];
 
   return (
@@ -108,7 +115,7 @@ export default function TutorDashboard() {
           </h2>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {actions.map((action) => {
             const Icon = action.icon;
 
