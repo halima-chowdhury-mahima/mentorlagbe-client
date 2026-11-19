@@ -2,6 +2,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   ShieldCheck,
@@ -14,6 +15,8 @@ import {
   Loader2,
   LayoutDashboard,
   AlertCircle,
+  UserRound,
+  ArrowRight,
 } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -238,6 +241,8 @@ export default function AdminDashboard() {
   return (
     <main className="min-h-screen bg-[#F8F7F2] px-4 py-8 text-[#101B35] sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
+
+        {/* Dashboard Header */}
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
           <div>
             <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-[#18A999]">
@@ -263,6 +268,33 @@ export default function AdminDashboard() {
           </button>
         </div>
 
+        {/* My Profile */}
+        <section className="mb-8">
+          <Link
+            href="/dashboard/admin/profile"
+            className="group flex max-w-md items-center gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#18A999] hover:shadow-md"
+          >
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#18A999]/10 text-[#18A999]">
+              <UserRound size={24} />
+            </div>
+
+            <div className="flex-1">
+              <h2 className="font-bold text-[#101B35]">
+                My Profile
+              </h2>
+              <p className="mt-1 text-sm text-slate-500">
+                View and update your personal information.
+              </p>
+            </div>
+
+            <ArrowRight
+              size={18}
+              className="shrink-0 text-[#18A999] transition group-hover:translate-x-1"
+            />
+          </Link>
+        </section>
+
+        {/* Statistics */}
         <section className="mb-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => {
             const Icon = stat.icon;
@@ -289,6 +321,7 @@ export default function AdminDashboard() {
           })}
         </section>
 
+        {/* Tuition Management */}
         <section className="mb-9">
           <div className="mb-5 flex items-center gap-3">
             <div className="rounded-xl bg-[#18A999]/10 p-3 text-[#18A999]">
@@ -306,7 +339,10 @@ export default function AdminDashboard() {
 
           {pendingTuitions.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center">
-              <CheckCircle className="mx-auto mb-3 text-[#18A999]" size={34} />
+              <CheckCircle
+                className="mx-auto mb-3 text-[#18A999]"
+                size={34}
+              />
               <h3 className="font-bold">All caught up!</h3>
               <p className="mt-1 text-sm text-slate-500">
                 There are no pending tuition posts.
@@ -375,6 +411,7 @@ export default function AdminDashboard() {
           )}
         </section>
 
+        {/* Tuition Overview */}
         <section className="mb-9 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
           <h2 className="mb-4 text-xl font-bold">
             Tuition Overview
@@ -382,21 +419,27 @@ export default function AdminDashboard() {
 
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-xl bg-slate-50 p-4">
-              <p className="text-sm text-slate-500">All Tuitions</p>
+              <p className="text-sm text-slate-500">
+                All Tuitions
+              </p>
               <p className="mt-1 text-2xl font-extrabold">
                 {tuitions.length}
               </p>
             </div>
 
             <div className="rounded-xl bg-emerald-50 p-4">
-              <p className="text-sm text-slate-500">Approved</p>
+              <p className="text-sm text-slate-500">
+                Approved
+              </p>
               <p className="mt-1 text-2xl font-extrabold text-emerald-700">
                 {approvedTuitions.length}
               </p>
             </div>
 
             <div className="rounded-xl bg-amber-50 p-4">
-              <p className="text-sm text-slate-500">Pending</p>
+              <p className="text-sm text-slate-500">
+                Pending
+              </p>
               <p className="mt-1 text-2xl font-extrabold text-amber-700">
                 {pendingTuitions.length}
               </p>
@@ -404,6 +447,7 @@ export default function AdminDashboard() {
           </div>
         </section>
 
+        {/* Recent Users */}
         <section className="mb-9 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
           <h2 className="mb-4 flex items-center gap-2 text-xl font-bold">
             <Users className="text-[#18A999]" />
@@ -451,6 +495,7 @@ export default function AdminDashboard() {
           )}
         </section>
 
+        {/* Recent Payments */}
         <section className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
           <h2 className="mb-4 flex items-center gap-2 text-xl font-bold">
             <CreditCard className="text-[#18A999]" />
