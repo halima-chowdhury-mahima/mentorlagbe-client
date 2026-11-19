@@ -1,9 +1,43 @@
-
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  color-scheme: light;
+
   --background: #f8f7f2;
   --foreground: #101b35;
+
+  --surface: #ffffff;
+  --surface-secondary: #f1f3f5;
+
+  --border: #e2e8f0;
+  --muted: #64748b;
+
+  --primary: #101b35;
+  --accent: #18a999;
+
+  --footer-background: #101b35;
+  --footer-foreground: #ffffff;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #080e1c;
+  --foreground: #edf2ff;
+
+  --surface: #111c30;
+  --surface-secondary: #17243a;
+
+  --border: #293750;
+  --muted: #a1aec3;
+
+  --primary: #d6b36c;
+  --accent: #42d9c3;
+
+  --footer-background: #060b16;
+  --footer-foreground: #edf2ff;
 }
 
 * {
@@ -19,6 +53,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-dm-sans), sans-serif;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
 }
 
 h1,
@@ -35,7 +72,31 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button {
+  cursor: pointer;
+}
+
 ::selection {
-  background: #18a999;
+  background: var(--accent);
   color: #101b35;
+}
+
+.theme-surface {
+  background: var(--surface);
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+.theme-muted {
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
