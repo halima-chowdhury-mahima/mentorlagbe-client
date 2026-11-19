@@ -27,6 +27,12 @@ const dashboardItems = [
     icon: Bookmark,
   },
   {
+  title: "My Profile",
+  description: "View and update your personal and academic information.",
+  href: "/dashboard/student/profile",
+  icon: UserRound,
+},
+  {
     title: "Browse Tuitions",
     description: "Discover tuition opportunities that match your needs.",
     href: "/tuitions",
