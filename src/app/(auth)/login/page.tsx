@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "@/lib/auth-client";
+import { signIn, authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { GraduationCap, Eye, EyeOff } from "lucide-react";
 
@@ -35,10 +35,40 @@ export default function LoginPage() {
         return;
       }
 
+      // Fetch the authenticated user's session
+      const sessionResult = await authClient.getSession();
+      const user = sessionResult.data?.user;
+
+      if (!user) {
+        toast.error("Login succeeded, but user session could not be loaded.");
+        return;
+      }
+
       toast.success("Login successful!");
-      router.push("/");
+
+      // Redirect according to the user's role
+      switch (user.role) {
+        case "admin":
+          router.replace("/dashboard/admin");
+          break;
+
+        case "tutor":
+          router.replace("/dashboard/tutor");
+          break;
+
+        case "student":
+          router.replace("/dashboard/student");
+          break;
+
+        default:
+          toast.error("Your account role is not recognized.");
+          router.replace("/");
+          break;
+      }
+
       router.refresh();
-    } catch {
+    } catch (error) {
+      console.error("Login error:", error);
       toast.error("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
